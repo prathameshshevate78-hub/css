@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Odd and Even Row Styling</title>
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        th {
+            background: #f0f0f0;
+        }
+        .odd-row {
+            background-color: #e8f5e9; /* Light Green */
+        }
+        .even-row {
+            background-color: #fce4ec; /* Light Pink */
+        }
+    </style>
+</head>
+
+<body ng-controller="tableCtrl">
+
+    <h2 style="text-align:center;">Student Data (Odd/Even Row Styling)</h2>
+
+    <table>
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Class</th>
+        </tr>
+
+        <tr ng-repeat="student in students"
+            ng-class-odd="'odd-row'"
+            ng-class-even="'even-row'">
+            <td>{{student.roll}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.course}}</td>
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("tableCtrl", function ($scope) {
+            $scope.students = [
+                {roll: 1, name: "Amit", course: "TYCO"},
+                {roll: 2, name: "Riya", course: "TYCO"},
+                {roll: 3, name: "Kunal", course: "TYCO"},
+                {roll: 4, name: "Sneha", course: "FYCO"},
+                {roll: 5, name: "Rohan", course: "FYCO"},
+                {roll: 6, name: "Neha", course: "SYCO"},
+                {roll: 7, name: "Pooja", course: "SYCO"},
+                {roll: 8, name: "Ajay", course: "TYCO"},
+                {roll: 9, name: "Vinay", course: "SYCO"},
+                {roll: 10, name: "Meera", course: "TYCO"}
+            ];
+        });
+    </script>
+
+</body>
+</html>

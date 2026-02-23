@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Controller Methods</title>
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+
+    <h1>AngularJS Controller Methods Example</h1>
+
+    <h2>Convert Name</h2>
+    Enter Name:
+    <input type="text" ng-model="name"><br><br>
+
+    <button ng-click="convertUpper()">Convert to Uppercase</button>
+    <button ng-click="convertLower()">Convert to Lowercase</button>
+
+    <p>Uppercase Name: {{ upperName }}</p>
+    <p>Lowercase Name: {{ lowerName }}</p>
+
+    <!-- AngularJS Script -->
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function ($scope) {
+
+            // Convert name to uppercase
+            $scope.convertUpper = function () {
+                $scope.upperName = $scope.name ? $scope.name.toUpperCase() : "";
+            };
+
+            // Convert name to lowercase
+            $scope.convertLower = function () {
+                $scope.lowerName = $scope.name ? $scope.name.toLowerCase() : "";
+            };
+
+        });
+    </script>
+
+</body>
+</html>

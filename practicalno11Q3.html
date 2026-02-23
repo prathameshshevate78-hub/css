@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Details</title>
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        th {
+            background: #f0f0f0;
+        }
+        .even-row {
+            background-color: #e8f5e9; /* Light Green */
+        }
+    </style>
+</head>
+
+<body ng-controller="tableCtrl">
+
+    <h2 style="text-align:center;">Staff Details</h2>
+
+    <table>
+        <tr>
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Designation</th>
+        </tr>
+
+        <tr ng-repeat="staff in staffList"
+            ng-class-even="'even-row'">
+            <td>{{staff.empId}}</td>
+            <td>{{staff.empName}}</td>
+            <td>{{staff.designation}}</td>
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("tableCtrl", function ($scope) {
+            $scope.staffList = [
+                {empId: 101, empName: "Amit", designation: "Manager"},
+                {empId: 102, empName: "Riya", designation: "Developer"},
+                {empId: 103, empName: "Kunal", designation: "Accountant"},
+                {empId: 104, empName: "Sneha", designation: "HR Executive"},
+                {empId: 105, empName: "Rohan", designation: "Sales Officer"},
+                {empId: 106, empName: "Neha", designation: "Tester"},
+                {empId: 107, empName: "Pooja", designation: "Team Lead"},
+                {empId: 108, empName: "Ajay", designation: "Admin"},
+                {empId: 109, empName: "Vinay", designation: "Support Engineer"},
+                {empId: 110, empName: "Meera", designation: "Marketing Executive"}
+            ];
+        });
+    </script>
+
+</body>
+</html>
